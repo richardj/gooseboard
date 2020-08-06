@@ -44,6 +44,7 @@ class Game {
 };
 
 class Tile {
+    int position{0};
 
 };
 
