@@ -16,8 +16,15 @@ class Player {
     string playerName;
 
     public:
-    string setPlayName() {
+    string setPlayerName() {
        return "Hi i am player"; 
+    }
+    void setName(string name) {
+        playerName = name;
+
+    }
+    string getName() {
+        return playerName;
     }
 };
 
@@ -50,12 +57,19 @@ int main() {
     Dice dice1;
     Dice dice2;
     bool gameOver = false;
+    string playerName;
 
     game.welcome();
-    cout << player1.setPlayName() << "\n";
+    cout << "Player 1, what is your name? " << endl;
+
+    cin >> playerName;
+    player1.setName(playerName);
+    cout << "Welcome " << player1.getName() << endl;
+    cout << "-----------------------------------------------------------" << endl;
+
 
     while (!gameOver) {
-        cout << "Press Enter to Roll the Dice";
+        cout << "press Enter to Roll the Dice \n";
         cin.ignore();
         
         int roll1 = dice1.roll();
@@ -64,7 +78,7 @@ int main() {
         cout << roll1 << "\n";
         cout << roll2 << "\n";
 
-        if (roll1 == 6) {
+        if (roll1 == 6 || roll2 == 6) {
             gameOver = true;
         }
     }
